@@ -1,2 +1,2 @@
 # marathi-sathi
-a project to find sathi for marriage 
+a project to find sathi 
