@@ -1,6 +1,6 @@
 import './App.css';
 import { Switch, Route } from "react-router-dom";
-import AboutUs from './Components/AboutUs'
+import Profiles from './Components/Profiles'
 import Home from './Components/Home'
 import Login from './Components/Login'
 import Register from './Components/Register'
@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <SearchAppBar />
       <Switch>
-        <Route path="/about">
-          <AboutUs />
+        <Route path="/profiles">
+          <Profiles />
         </Route>
         <Route path="/login">
           <Login />

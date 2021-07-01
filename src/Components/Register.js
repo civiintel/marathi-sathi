@@ -5,6 +5,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import { Formik, Form, ErrorMessage, Field } from 'formik'
+import * as Yup from 'yup'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +28,26 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = () => {
   const classes = useStyles();
+
+const initialValues = {
+    fullName: "",
+    height: "",
+    email: '',
+    location: "",
+    job: "",
+    contactNumber: "",
+    password : '',
+}
+
+const validationSchema = Yup.object().shape({
+  fullName: Yup.string().min(5).required(),
+    height: Yup.number().required(),
+    email: Yup.string().required(),
+    location: Yup.string().min(3).required(),
+    job: Yup.string().min(3).required(),
+    contactNumber: Yup.number().max(10).required(),
+    password : Yup.required(),
+})
 
   const UploadButtons = () => {
   
@@ -47,33 +70,78 @@ const Register = () => {
     );
   }
   
+  const handleRegisterSubmit = data => {
+    console.log(data);
+  }
 
-//   ⦁	login/Sign Up ( Create Profile ) = Name, photo, family details, location, contact number , email id for sign up/ phone number  
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <Formik initialValues={initialValues} onSubmit={handleRegisterSubmit} validationSchema={validationSchema}>
+<Form>
       <Paper elevation={3} style={{}} >
-      <TextField id="standard-basic" label="Full Name" />
-      <TextField id="standard-basic" label="Password for future login" />
-      <TextField id="standard-basic" label="Family Details" />
-      <TextField id="standard-basic" label="Mobile Number" />
-      <TextField id="standard-basic" label="Family contact Number" />
-      <TextField id="standard-basic" label="Email id (optional)" />
+            <Field
+              component={TextField}
+              label="Full Name"
+              name="fullName"
+              type="text"
+            />
+            <ErrorMessage name="fullName" component='span' />
+            <Field
+              component={TextField}
+              type="password"
+              label="Enter a Password"
+              name="password"
+            />
+            <ErrorMessage name="password" component='span' />
+            <Field
+              component={TextField}
+              type="number"
+              label="Conatct Number"
+              name="contactNumber"
+            />
+            <ErrorMessage name="contactNumber" component='span' />            
+            <Field
+              component={TextField}
+              type="text"
+              label="Location"
+              name="location"
+            />
+            <ErrorMessage name="location" component='span' />            
+            <Field
+              component={TextField}
+              type="text"
+              label="Company"
+              name="job"
+            />
+            <ErrorMessage name="job" component='span' />            
+            <Field
+              component={TextField}
+              type="text"
+              label="Height in FT"
+              name="height"
+            />
+            <ErrorMessage name="height" component='span' />
+            <Field
+              component={TextField}
+              name="email"
+              type="email"
+              label="Email"
+              helperText="Please Enter Email"
+            />
+            <ErrorMessage name="email" component='span' />            
       {UploadButtons()}
-      <FormControlLabel   
-        control={
-          <Checkbox
-            checked={true}
-            name="checkedB"
-            color="primary"
-          />
-        }
+        <FormControlLabel
+              control={
+                <Field component={Checkbox} checked={true} type="checkbox"  name="checkedB" color="primary" />
+              }
         label="Save Login Details"
-      />
-      <Button variant="contained" color="secondary">
+            />
+
+      <Button variant="contained" color="secondary" type='submit'> 
       Register
 </Button>
       </Paper>
-    </form>
+</Form>
+  </Formik>
   );
 }
 
