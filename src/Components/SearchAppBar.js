@@ -75,7 +75,7 @@ const SearchAppBar = props => {
           </Typography>
 
           <Button variant="contained" disabled />
-          <Button variant="contained" onClick={() => handleButtonClick('/about')}>About us</Button>
+          <Button variant="contained" onClick={() => handleButtonClick('/profiles')}>Profiles</Button>
           <Button variant="contained" disabled />
           <Button variant="contained" color="primary" onClick={() => handleButtonClick('/login')}>
             Login

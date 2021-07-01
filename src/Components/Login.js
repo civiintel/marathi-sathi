@@ -39,8 +39,8 @@ const Login = () => {
         label="Save Login Details"
       />
       <Button variant="contained" color="secondary">
-  Login
-</Button>
+        Login
+      </Button>
       </Paper>
     </form>
   );
