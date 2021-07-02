@@ -6,7 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { Formik, Form, ErrorMessage, Field } from 'formik'
-import * as Yup from 'yup'
+import * as yup from 'yup';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,9 +16,9 @@ const useStyles = makeStyles((theme) => ({
       width: '25ch',
       padding: 100,
       alignItems: 'center',
-    justifyContent: 'center',
-    display: 'inline-block',
-    marginTop: 15,
+      justifyContent: 'center',
+      display: 'inline-block',
+      marginTop: 15,
     },
   },
   input: {
@@ -39,14 +39,13 @@ const initialValues = {
     password : '',
 }
 
-const validationSchema = Yup.object().shape({
-  fullName: Yup.string().min(5).required(),
-    height: Yup.number().required(),
-    email: Yup.string().required(),
-    location: Yup.string().min(3).required(),
-    job: Yup.string().min(3).required(),
-    contactNumber: Yup.number().max(10).required(),
-    password : Yup.required(),
+const validationSchema = yup.object().shape({
+  fullName:  yup.string().min(5).required('Full Name must be entered') ,
+     height: yup.number().required('height is must'),
+     email: yup.string().required('Please provide a valide email id'),
+     location: yup.string().min(3).required('laction is required'),
+     job: yup.string().min(3).required('provife your job profie'),
+     contactNumber: yup.number().max(10).required('enter family/personal conatct number'),
 })
 
   const UploadButtons = () => {
@@ -77,7 +76,7 @@ const validationSchema = Yup.object().shape({
   return (
     <Formik initialValues={initialValues} onSubmit={handleRegisterSubmit} validationSchema={validationSchema}>
 <Form>
-      <Paper elevation={3} style={{}} >
+      <Paper elevation={3} style={{display: 'inline-grid',width: '400px',padding: '38px', marginTop: '21px'}} >
             <Field
               component={TextField}
               label="Full Name"
