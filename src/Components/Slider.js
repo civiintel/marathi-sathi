@@ -20,7 +20,7 @@ const Slider = () => {
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
-          height="400"
+          height="530"
           image={homeslider1}
           title="Contemplative Reptile"
         />
