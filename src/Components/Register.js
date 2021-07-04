@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { Formik, Form, ErrorMessage, Field } from 'formik'
 import * as yup from 'yup';
@@ -76,14 +75,15 @@ const validationSchema = yup.object().shape({
   return (
     <Formik initialValues={initialValues} onSubmit={handleRegisterSubmit} validationSchema={validationSchema}>
 <Form>
-      <Paper elevation={3} style={{display: 'inline-grid',width: '400px',padding: '38px', marginTop: '21px'}} >
+
             <Field
               component={TextField}
               label="Full Name"
               name="fullName"
               type="text"
+              helperText={<ErrorMessage  name="fullName" component='span' />}
             />
-            <ErrorMessage name="fullName" component='span' />
+
             <Field
               component={TextField}
               type="password"
@@ -138,7 +138,7 @@ const validationSchema = yup.object().shape({
       <Button variant="contained" color="secondary" type='submit'> 
       Register
 </Button>
-      </Paper>
+
 </Form>
   </Formik>
   );
