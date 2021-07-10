@@ -69,7 +69,7 @@ const validationSchema = yup.object().shape({
   }
   
   const handleRegisterSubmit = data => {
-    console.log(data);console.log(data);
+    console.log(data);
   }
 
   return (
