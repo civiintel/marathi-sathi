@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.MuiFormHelperText-root {
+  color: rgba(248, 0, 62, 0.794) !important;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
