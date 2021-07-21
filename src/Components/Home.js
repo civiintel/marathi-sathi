@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Slider from './Slider';
-import Register from './Register';
-
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+// import SignIn from "./SignIn";
+// import SignUp from "./SignUp";
+import SignInOutContainer from "../Containers/SiognInOutContainer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,16 +16,11 @@ const Home = () => {
 
   return (
     <div className={classes.root}>
-       <Grid container spacing={0}>
-        <Grid item xs={8}>
-          <Slider />
-        </Grid>
-        <Grid item xs={4}>
-          <Register />
-        </Grid>
-</Grid>
+      <Grid container spacing={0}>
+        <SignInOutContainer />
+      </Grid>
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

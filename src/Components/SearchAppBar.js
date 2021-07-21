@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import {withRouter} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,10 +71,10 @@ const SearchAppBar = props => {
       <AppBar position="static" color="secondary">
         <Toolbar style={{justifyContent: 'space-evenly'}}>
           <Typography className={classes.title} variant="h6" noWrap onClick={() => handleButtonClick('/')}>
-            Reddy Marathi Sathi
+           Marathi Sathi
           </Typography>
 
-          <Button variant="contained" disabled />
+          {/* <Button variant="contained" disabled />
           <Button variant="contained" onClick={() => handleButtonClick('/profiles')}>Profiles</Button>
           <Button variant="contained" disabled />
           <Button variant="contained" color="primary" onClick={() => handleButtonClick('/login')}>
@@ -83,8 +83,10 @@ const SearchAppBar = props => {
           <Button variant="contained" disabled />
           <Button variant="contained" color="secondary" onClick={() => handleButtonClick('/register')}>
             Register
-          </Button>
+          </Button> 
           <Button variant="contained" disabled />
+          */}
+          
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
